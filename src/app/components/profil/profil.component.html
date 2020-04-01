@@ -1,3 +1,49 @@
-<p>
-  profil works!
-</p>
+<ion-list>
+  <ion-item>
+    <ion-avatar slot="start">
+      <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
+    </ion-avatar>
+    <ion-label>{{email}}</ion-label>
+      <ion-avatar slot="end">
+        <ion-icon class="logout-icon" name="log-out-outline"></ion-icon>
+      </ion-avatar>
+  </ion-item>
+</ion-list>
+
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Your app use</ion-card-subtitle>
+    <ion-card-title>Overview</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-row class="achievements-row">
+      <ion-col>
+        <ion-icon name="cloud-upload-outline"></ion-icon><br>
+        {{uploads}}
+      </ion-col>
+      <ion-col>
+        <ion-icon name="cloud-download-outline"></ion-icon><br>
+        {{downloads}}
+      </ion-col>
+      <ion-col>
+        <ion-icon name="alarm-outline"></ion-icon><br>
+        {{filesOnline}}
+      </ion-col>
+    </ion-row>
+  </ion-card-content>
+</ion-card>
+<!-- feedbacks -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Have some thoughts ?</ion-card-subtitle>
+    <ion-card-title>Feedback</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <form action="" method="post">
+      <ion-input value="Your message here..."></ion-input>
+      <!-- <ion-button>Send</ion-button> -->
+    </form>
+  </ion-card-content>
+</ion-card>
