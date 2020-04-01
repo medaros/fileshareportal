@@ -2,22 +2,21 @@
 
 clear
 
-if [ "$1" == "" ] && [ ! -z "$2" ]; then
+if [ ! -z "$1" ]; then
 
-    $1 = "develop"
     echo
     echo "- @medaros let the magic begin :p"
     echo
     echo
 
     git add .
-    git commit -m "$2"
+    git commit -m "$1"
 
-    git push origin $1
+    git push origin develop
 
     echo
     echo
-    echo "Push fini sur << $1 >>"
+    echo "Push fini sur << develop >>"
     echo
 
 elif [ "$1" == "pull" ]; then
