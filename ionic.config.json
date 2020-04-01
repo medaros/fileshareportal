@@ -1,0 +1,7 @@
+{
+  "name": "fileshareportal",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
