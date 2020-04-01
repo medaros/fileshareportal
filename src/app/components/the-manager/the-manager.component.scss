@@ -1,0 +1,178 @@
+.content-container {
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.content-container .icon-center-lg {
+    display: block;
+    font-size: 5rem;
+    margin: auto;
+}
+
+.content-container .button-container ion-button{
+    display: block;
+    margin-top: 1rem;
+}
+
+// page initiale
+
+.step-init *:not(ion-button) {
+    display: block;
+    padding: 0 !important;
+}
+
+.step-init * {
+    text-align: center;
+}
+
+.step-init .download-code-text {
+    text-align: left;
+}
+
+.step-init ion-text {
+    // text-align: justify;
+}
+
+.step-init ion-input {
+    margin: 1rem 0;
+    border: 1px solid var(--ion-color-light);
+    border-radius: 3px;
+    transition: .4s;
+}
+
+.step-init ion-input:active {
+    border: 1px solid var(--ion-color-primary);
+}
+
+.step-init .or {
+    // background-color: #121212;
+    position: relative;
+}
+
+.step-init .or::before {
+    content: "";
+    left: 0;
+    top: 50%;
+    height: 2px;
+    width: 100%;
+    background: var(--ion-color-light);
+    box-shadow: 0 0 5px #000;
+    position: absolute;
+    z-index: -1;
+}
+
+.step-init .or::after {
+    content: "";
+    left: 40%;
+    top: calc(50% - 10px);
+    height: 20px;
+    width: 20%;
+    background: #121212;
+    position: absolute;
+    z-index: -1;
+}
+
+.step-init div {
+    margin-top: 1rem;
+}
+
+.step-init div ion-button {
+    width: 100%;
+}
+
+// in progress
+
+.step-in-progress ion-progress-bar {
+    margin-top: 1rem;
+}
+
+.step-in-progress .progress-sub-text {
+    margin-top: 1rem;
+    text-align: left;
+    font-size: .8rem;
+    color: #ccc;
+    display: flex;
+}
+
+.step-in-progress .progress-sub-text ion-icon {
+    font-size: 1rem;
+    margin-right: .2rem;
+}
+
+// upload success
+
+.step-success .success-icon {
+    color: var(--ion-color-success);
+}
+
+
+.step-success .copycut-container {
+    position: relative;    
+}
+
+.step-success .copycut-text {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+}
+
+.step-success input {
+    background: transparent;
+    display: block;
+    width: 100%;
+    margin: 1rem 0;
+    padding: .5rem;
+    border-radius: 3px;
+    border: 1px solid var(--ion-color-primary);
+    text-align: center;
+    transition: .4s;
+    outline: none;
+    position: relative;
+    color: var(--ion-color-primary);
+}
+
+.step-success .copycut-text {
+    color: var(--ion-color-success);
+}
+.step-success input:active {
+    border: 1px solid var(--ion-color-success);
+    color: transparent
+}
+.step-success input:active + .copycut-text {
+    display: block;
+}
+
+// upload failure
+
+.step-failure .failure-icon {
+    margin-bottom: .5rem;
+    color: var(--ion-color-danger);
+}
+
+.step-failure .button-container {
+    margin: 1rem 0;
+}
+
+// ready to download
+
+.step-download-found {
+    text-align: center;
+}
+
+.step-download-found .button-container{
+    margin-top: 1rem;
+}
+
+// not found error
+
+.step-download-not-found .not-found-icon {
+    color: var(--ion-color-warning);
+    margin-bottom: .5rem;
+}
+
