@@ -142,7 +142,7 @@
 }
 .step-success input:active {
     border: 1px solid var(--ion-color-success);
-    color: transparent
+    color: #121212;
 }
 .step-success input:active + .copycut-text {
     display: block;
