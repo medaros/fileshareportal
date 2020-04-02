@@ -1,5 +1,5 @@
 <ion-list>
-  <ion-item>
+  <ion-item *ngIf="email != ''">
     <ion-avatar slot="start">
       <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
     </ion-avatar>
@@ -7,6 +7,12 @@
       <ion-avatar slot="end">
         <ion-icon class="logout-icon" name="log-out-outline"></ion-icon>
       </ion-avatar>
+  </ion-item>
+  <ion-item class="login-block" *ngIf="email == ''">
+    <div>
+      <ion-text>Login now to save your profil app use.</ion-text>
+      <ion-button class="login-button"><ion-icon name="log-in-outline"></ion-icon>&nbsp;User login / signup</ion-button>
+    </div>
   </ion-item>
 </ion-list>
 
@@ -31,6 +37,17 @@
         {{filesOnline}}
       </ion-col>
     </ion-row>
+  </ion-card-content>
+</ion-card>
+<!-- tutorial -->
+<ion-card>
+  <ion-card-header>
+    <ion-card-subtitle>Have some trouble ?</ion-card-subtitle>
+    <ion-card-title>Tutorial</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>
+    <ion-button class="login-button"><ion-icon name="eye-outline"></ion-icon>&nbsp;read the tutorial</ion-button>
   </ion-card-content>
 </ion-card>
 <!-- feedbacks -->

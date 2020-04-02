@@ -1,0 +1,25 @@
+
+ion-content {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+
+ion-content ion-slides {
+    width: 85%;
+    height: 100%;
+}
+
+.magic-wand {
+    font-size: 3rem;
+}
+
+.tut {
+    // font-size: .9rem;
+    text-align: left;
+    margin: 3rem 0 0;
+}
+
+.tut ion-icon {
+    color: #428cff
+}

@@ -1,12 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',
   styleUrls: ['tabs.page.scss']
 })
-export class TabsPage {
+export class TabsPage implements OnInit {
 
-  constructor() {}
+  constructor(private router: Router) {}
+
+  ngOnInit() {
+
+    // if first time
+    // launch tutorial
+    // this.router.navigate(["/tutorial"])
+  }
 
 }
