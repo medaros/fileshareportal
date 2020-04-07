@@ -11,29 +11,30 @@
     border: 1px solid var(--ion-color-light);
     border-radius: 3px;
     background: #1A1B1E;
+    position: relative;
 }
 
 .file-extension-img {
-    width: 30%;
+    width: 25%;
     // background: red;
     border-radius: 3px 0 0 3px;
     display: flex; 
     align-items: center;
     justify-content: center;
-    border-right: 1px solid var(--ion-color-primary);
+    // border-right: 1px solid var(--ion-color-primary);
     // border-right: none;
     font-size: 2rem;
 }
 
 .file-content {
-    width: 70%;
+    width: 75%;
     height: 100%;
     // padding: 1rem;
     // border: 1px solid blue;
 }
 
 .file-title {
-    padding: 0.5rem 0.5rem 0;
+    padding: 0.5rem .5rem 0;
     text-align: center;
     font-weight: bold;
 }

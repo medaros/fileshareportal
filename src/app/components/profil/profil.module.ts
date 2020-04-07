@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ProfilComponent } from './profil.component';
 
 @NgModule({
-  imports: [ CommonModule, FormsModule, IonicModule],
+  imports: [CommonModule, FormsModule, IonicModule],
   declarations: [ProfilComponent],
   exports: [ProfilComponent]
 })

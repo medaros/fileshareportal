@@ -1,66 +1,83 @@
-<ion-list>
-  <ion-item *ngIf="email != ''">
-    <ion-avatar slot="start">
-      <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
-    </ion-avatar>
-    <ion-label>{{email}}</ion-label>
-      <ion-avatar slot="end">
-        <ion-icon class="logout-icon" name="log-out-outline"></ion-icon>
+<div *ngIf="section == 0" class="profil">
+  <ion-list>
+    <ion-item *ngIf="email != ''">
+      <ion-avatar slot="start">
+        <ion-icon class="user-icon" name="person-circle-outline"></ion-icon>
       </ion-avatar>
-  </ion-item>
-  <ion-item class="login-block" *ngIf="email == ''">
-    <div>
-      <ion-text>Login now to save your profil app use.</ion-text>
-      <ion-button class="login-button"><ion-icon name="log-in-outline"></ion-icon>&nbsp;User login / signup</ion-button>
-    </div>
-  </ion-item>
-</ion-list>
+      <ion-label>{{email}}</ion-label>
+        <ion-avatar slot="end">
+          <ion-icon class="logout-icon" name="log-out-outline"></ion-icon>
+        </ion-avatar>
+    </ion-item>
+    <ion-item class="login-block" *ngIf="email == ''">
+      <div>
+        <ion-text>Login now to save your profil app use.</ion-text>
+        <ion-button class="login-button" (click)="section=1" color="success"><ion-icon name="log-in-outline"></ion-icon>&nbsp;User login / signup</ion-button>
+      </div>
+    </ion-item>
+  </ion-list>
+  
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Your app use</ion-card-subtitle>
+      <ion-card-title>Overview</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-row class="achievements-row">
+        <ion-col>
+          <ion-icon name="cloud-upload-outline"></ion-icon><br>
+          {{uploads}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="cloud-download-outline"></ion-icon><br>
+          {{downloads}}
+        </ion-col>
+        <ion-col>
+          <ion-icon name="alarm-outline"></ion-icon><br>
+          {{filesOnline}}
+        </ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <!-- tutorial -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Have some trouble ?</ion-card-subtitle>
+      <ion-card-title>Tutorial</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <ion-button (click)="tutorial()" fill="clear"><ion-icon name="eye-outline"></ion-icon>&nbsp;read the tutorial</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <!-- feedbacks -->
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Have some thoughts ?</ion-card-subtitle>
+      <ion-card-title>Feedback</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      <form action="" method="post">
+        <ion-input placeholder="Your message here..."></ion-input>
+      <ion-button fill="clear"><ion-icon name="send-outline"></ion-icon>&nbsp;Send feedback</ion-button>
+        <!-- <ion-button>Send</ion-button> -->
+      </form>
+    </ion-card-content>
+  </ion-card>
+</div>
 
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Your app use</ion-card-subtitle>
-    <ion-card-title>Overview</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-row class="achievements-row">
-      <ion-col>
-        <ion-icon name="cloud-upload-outline"></ion-icon><br>
-        {{uploads}}
-      </ion-col>
-      <ion-col>
-        <ion-icon name="cloud-download-outline"></ion-icon><br>
-        {{downloads}}
-      </ion-col>
-      <ion-col>
-        <ion-icon name="alarm-outline"></ion-icon><br>
-        {{filesOnline}}
-      </ion-col>
-    </ion-row>
-  </ion-card-content>
-</ion-card>
-<!-- tutorial -->
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Have some trouble ?</ion-card-subtitle>
-    <ion-card-title>Tutorial</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <ion-button class="login-button"><ion-icon name="eye-outline"></ion-icon>&nbsp;read the tutorial</ion-button>
-  </ion-card-content>
-</ion-card>
-<!-- feedbacks -->
-<ion-card>
-  <ion-card-header>
-    <ion-card-subtitle>Have some thoughts ?</ion-card-subtitle>
-    <ion-card-title>Feedback</ion-card-title>
-  </ion-card-header>
-
-  <ion-card-content>
-    <form action="" method="post">
-      <ion-input value="Your message here..."></ion-input>
-      <!-- <ion-button>Send</ion-button> -->
-    </form>
-  </ion-card-content>
-</ion-card>
+<div *ngIf="section == 1" class="login-section">
+  <div>
+    <ion-icon name="happy-outline"></ion-icon>
+    <ion-title>Almost there ...</ion-title>
+  </div>
+  <p>To avoid waisting any of your presious time The login form is also for creating accounts !</p>
+  <form>
+    <ion-input placeholder="email"></ion-input>
+    <ion-input placeholder="password"></ion-input>
+    <ion-button class="login-button" color="primary"><ion-icon name="log-in-outline"></ion-icon>&nbsp;Login / signup</ion-button>
+    <ion-button class="login-button" (click)="section = 0" fill="clear" color="primary">&nbsp;Cancel</ion-button>
+  </form>
+</div>

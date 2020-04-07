@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profil',
@@ -14,7 +15,9 @@ export class ProfilComponent implements OnInit {
   downloads:number = 123
   filesOnline:number = 120
 
-  constructor(private authService: AuthService) { }
+  section = 0
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
 
@@ -24,4 +27,7 @@ export class ProfilComponent implements OnInit {
 
   }
 
+  tutorial() {
+    this.router.navigate(["/tutorial"])
+  }
 }

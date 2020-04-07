@@ -1,3 +1,7 @@
+.small {
+    font-size: .8rem;
+}
+
 .content-container {
     width: 80%;
     position: absolute;
@@ -38,6 +42,7 @@
     border: 1px solid var(--ion-color-light);
     border-radius: 3px;
     transition: .4s;
+    background: #1A1B1E;
 }
 
 .step-init ion-input:active {
@@ -119,13 +124,13 @@
 }
 
 .step-success input {
-    background: transparent;
+    background: #1A1B1E;
     display: block;
     width: 100%;
     margin: 1rem 0;
     padding: .5rem;
     border-radius: 3px;
-    border: 1px solid var(--ion-color-primary);
+    border: 1px solid var(--ion-color-light);
     text-align: center;
     transition: .4s;
     outline: none;
