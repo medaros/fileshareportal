@@ -4,6 +4,7 @@ import { interval } from 'rxjs';
 import { AlertController } from '@ionic/angular';
 import { FilesService } from 'src/app/services/files/files.service';
 import { HttpResponse } from '@angular/common/http';
+import { FileModel } from './file.model';
 
 @Component({
   selector: 'app-the-manager',
@@ -17,6 +18,8 @@ export class TheManagerComponent implements OnInit {
   msg: {};
   fileUploadDetail: any;
   filepath: any;
+
+  fileDetails: FileModel
 
   constructor(private router: Router, public alertController: AlertController, private files: FilesService) { }
 
@@ -63,8 +66,10 @@ export class TheManagerComponent implements OnInit {
         },
         err => {
           // show retry error :
+          console.log(err)
           this.uploadFileAfter(false)
-        });
+        }
+        );
 
     }, 500);
   }
@@ -87,25 +92,26 @@ export class TheManagerComponent implements OnInit {
       return
     }
 
-    // get file details
-    let localDb = new Array()
-    console.log(localStorage.getItem("files"))
-    console.log(localDb)
-    // get saved file list
-    if(localStorage.getItem("files") != "" 
-    || localStorage.getItem("files") != null)
-    localDb.push(JSON.parse(localStorage.getItem("files"))) 
-    
-    console.log(localStorage.getItem("files"))
-    console.log(localDb)
-    // if our file doesn't exist in local database
-    if(!localDb.includes(data))
-    localDb.push(data) // we push the new file with it's details
-    
-    // save everything in localstorage
-    localStorage.setItem("files", JSON.stringify(localDb))
-    console.log(localStorage.getItem("files"))
-    console.log(localDb)
+    // // get files from localstorage
+    let ls = JSON.parse(localStorage.getItem("files")) || []
+
+    this.fileDetails = {
+      filename: data.filename,
+      filecode: data.filecode,
+      fileexte: data.fileexte,
+      filesize: data.filesize,
+      uploadtime: data.uploadtime
+    }
+
+    ls.push(this.fileDetails) // we push the new file with it's details
+
+    // // save everything in localstorage
+    localStorage.setItem("files", JSON.stringify(ls))
+    // set uploads counter overview
+    localStorage.setItem("uploads", JSON.stringify(JSON.parse(localStorage.getItem("uploads")) + 1))
+    // set online counter overview
+    localStorage.setItem("filesOnline", JSON.stringify(JSON.parse(localStorage.getItem("filesOnline")) + 1))
+
   }
 
   // while enter key is pressed
@@ -145,6 +151,8 @@ export class TheManagerComponent implements OnInit {
     this.files.downloadFile(this.filepath)
     // afficher jolie alert pour l'user
     this.downloadingAlert();
+    // set downloads counter overview
+    localStorage.setItem("downloads", JSON.stringify(JSON.parse(localStorage.getItem("downloads")) + 1))
     // go to first step
     setTimeout(() => {
       this.step = 0

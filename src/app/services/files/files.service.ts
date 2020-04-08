@@ -13,6 +13,11 @@ export class FilesService {
 
   formdata = new FormData();
 
+  shuffle(frontTime: string): Observable<any> {
+    this.formdata.append("fronttime", frontTime)
+    return this.http.post(environment.server + "?action=files&do=comparetime", this.formdata)
+  }
+
   uploadFile(file: File): Observable<any> {
 
     this.clearForm()

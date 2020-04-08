@@ -1,6 +1,6 @@
 {
-  "appId": "io.ionic.starter",
-  "appName": "fileshareportal",
+  "appId": "com.a3producs.fsp",
+  "appName": "FileShare Portal",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",

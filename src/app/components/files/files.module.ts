@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 import { FilesComponent } from './files.component';
+import { customTextPipe } from 'src/app/pipes/text.pipe';
 
 @NgModule({
   imports: [ CommonModule, FormsModule, IonicModule],
-  declarations: [FilesComponent],
+  declarations: [FilesComponent, customTextPipe],
   exports: [FilesComponent]
 })
 export class FilesComponentModule {}

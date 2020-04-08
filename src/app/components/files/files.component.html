@@ -1,75 +1,62 @@
 
 <ion-list class="container">
 
-  <div class="file-container">
+  <div *ngFor="let file of fileList" (click)="copyFileCode(file.filecode)" class="file-container ion-activatable ripple-parent">
     <div class="file-extension-img">
       <ion-icon name="document-outline"></ion-icon>    
     </div>
     <div class="file-content">
       <div class="file-title">
-        <ion-text>spread-cheet-220</ion-text>
+        <ion-text>{{file.filename | limitLongText}}</ion-text>
       </div>
 
       <div class="file-details">
-        <div class="file-size"><ion-icon name="pie-chart-outline"></ion-icon>&nbsp;30mb</div>
-        <div class="file-extension"><ion-icon name="document-text-outline"></ion-icon>&nbsp;.csv</div>
-        <div class="file-time-remain"><ion-icon name="alarm-outline"></ion-icon><span>&nbsp;10min</span></div>
-      </div>
-
-    </div>
-  </div>
-  <div class="file-container">
-    <div class="file-extension-img">
-      <ion-icon name="document-outline"></ion-icon>    
-    </div>
-    <div class="file-content">
-      <div class="file-title">
-        <ion-text>spread-cheet-220</ion-text>
-      </div>
-
-      <div class="file-details">
-        <div class="file-size"><ion-icon name="pie-chart-outline"></ion-icon>&nbsp;30mb</div>
-        <div class="file-extension"><ion-icon name="document-text-outline"></ion-icon>&nbsp;.csv</div>
-        <div class="file-time-remain"><ion-icon name="alarm-outline"></ion-icon><span>&nbsp;10min</span></div>
-      </div>
-
-    </div>
-  </div>
-  <div class="file-container">
-    <div class="file-extension-img">
-      <ion-icon name="document-outline"></ion-icon>    
-    </div>
-    <div class="file-content">
-      <div class="file-title">
-        <ion-text>spread-cheet-220</ion-text>
-      </div>
-
-      <div class="file-details">
-        <div class="file-size"><ion-icon name="pie-chart-outline"></ion-icon>&nbsp;30mb</div>
-        <div class="file-extension"><ion-icon name="document-text-outline"></ion-icon>&nbsp;.csv</div>
-        <div class="file-time-remain"><ion-icon name="alarm-outline"></ion-icon><span>&nbsp;10min</span></div>
-      </div>
-
-    </div>
-  </div>
-
-  <div class="file-container ion-activatable ripple-parent">
-    <div class="file-extension-img">
-      <ion-icon name="document-outline"></ion-icon>    
-    </div>
-    <div class="file-content">
-      <div class="file-title">
-        <ion-text>spread-cheet-220</ion-text>
-      </div>
-
-      <div class="file-details">
-        <div class="file-size"><ion-icon name="pie-chart-outline"></ion-icon>&nbsp;30mb</div>
-        <div class="file-extension"><ion-icon name="document-text-outline"></ion-icon>&nbsp;.csv</div>
+        <div class="file-size"><ion-icon name="pie-chart-outline"></ion-icon>&nbsp;{{file.filesize}}</div>
+        <div class="file-extension"><ion-icon name="document-text-outline"></ion-icon>&nbsp;.{{file.fileexte}}</div>
         <div class="file-time-remain"><ion-icon name="alarm-outline"></ion-icon><span>&nbsp;10min</span></div>
       </div>
 
     </div>
     <ion-ripple-effect></ion-ripple-effect>
+  </div>
+
+  <div *ngIf="!fileList" class="ion-padding-horizontal custom-skeleton">
+    <h3>{{debug}}</h3>
+    <ion-item *ngIf="!fileList">
+      <ion-thumbnail slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-thumbnail>
+      <ion-label>
+        <h3 style="text-align:center">
+          <ion-skeleton-text animated style="width: 100%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    
+  </div>
+
+
+  <div class="nice-empty" *ngIf="niceEmpty">
+    <ion-slide>
+      <div class="slide">
+        <ion-icon class="magic-wand" name="glasses-outline"></ion-icon>
+        <h2>Nothing here</h2>
+        <p>It seems like you didn't upload files for now. Need some help ?</p>
+
+        <p class="tut">
+          <ion-icon name="folder-outline"></ion-icon> Here you will find your uploaded files where you can copy their short code to download them on your other devices.<br><br>
+          <ion-icon name="swap-vertical-outline"></ion-icon> This is where to go in case you want to download / upload your files.<br><br>
+          <ion-icon name="person-circle-outline"></ion-icon> All your profil details and progress that your made using this app.<br><br>
+        </p>
+      
+        <div>
+          <ion-button fill="clear" (click)="downloadUpload()">upload now <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+        </div>
+      </div>
+    </ion-slide>
   </div>
 
 </ion-list>

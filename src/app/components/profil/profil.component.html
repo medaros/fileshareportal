@@ -52,7 +52,7 @@
     </ion-card-content>
   </ion-card>
   <!-- feedbacks -->
-  <ion-card>
+  <ion-card *ngIf="feedback">
     <ion-card-header>
       <ion-card-subtitle>Have some thoughts ?</ion-card-subtitle>
       <ion-card-title>Feedback</ion-card-title>
@@ -60,8 +60,8 @@
   
     <ion-card-content>
       <form action="" method="post">
-        <ion-input placeholder="Your message here..."></ion-input>
-      <ion-button fill="clear"><ion-icon name="send-outline"></ion-icon>&nbsp;Send feedback</ion-button>
+        <ion-input #msg placeholder="Your message here..."></ion-input>
+        <ion-button (click)="sendFeedback(msg)" fill="clear"><ion-icon name="send-outline"></ion-icon>&nbsp;Send feedback</ion-button>
         <!-- <ion-button>Send</ion-button> -->
       </form>
     </ion-card-content>
